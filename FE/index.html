@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <h1>Add Products</h1>
+        <input type="text" name="" id="id">
+        <input type="text" name="" id="name">
+        <input type="text" name="" id="price">
+        <button onclick="addproduct()">Add Product</button>
+    </div>
+    <div></div>
+    
+</body>
+</html>
+
+<script>
+    function addproduct(){
+        const data = {
+            id : document.getElementById("id").value,
+            name: document.getElementById("name").value,
+            price : document.getElementById("price").value
+        };
+
+    
+        let response = await fetch("http://localhost:3000/Anjani/products", {
+            method: "POST",
+            body: JSON.stringify(data),
+            Headers:{"content-Type":"application/json"}
+        })
+        let dat = await response.json()
+        
+
+        
+    }
+</script>
